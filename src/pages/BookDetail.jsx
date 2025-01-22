@@ -50,14 +50,17 @@ function BookDetail() {
     return (
         <>
             <div>
-                <h1>Title: {book.title}</h1>
-                <p>Description: {book.description}</p>
-                <p>Author: {book.author}</p>
-                <p>Pages: {book.pages}</p>
-                <p>Genre: {book.genre}</p>
+                <h1 className="m-5">{book.title}</h1>
+                <p className="m-5">{book.description}</p>
+                <div className="m-10">
+                    <p>Author: {book.author}</p>
+                    <p>Pages: {book.pages}</p>
+                    <p>Genre: {book.genre}</p>
+                </div>
 
-                <button onClick={deleteClickHandler}>Delete</button>
-                <Link to={`edit/${book.id}`}>Edit</Link>
+
+                <button onClick={deleteClickHandler} className="mx-5">Delete</button>
+                <Link to={`edit/${book.id}`} className="rounded-lg mx-5 px-5 py-3 bg-neutral-900">Edit</Link>
             </div>
         </>
     )

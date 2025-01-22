@@ -4,9 +4,9 @@ function Layout() {
     return (
         <div>
             <header>
-                <nav>
-                    <Link to={`/`}>Home</Link>
-                    <Link to={`/create`}>Add New Book</Link>
+                <nav className="flex justify-center">
+                    <Link to={`/`} className="m-5">Home</Link>
+                    <Link to={`/create`} className="m-5">Add New Book</Link>
                 </nav>
             </header>
             <main>
