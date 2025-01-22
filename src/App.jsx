@@ -25,7 +25,7 @@ const router = createBrowserRouter([
                 element: <BookDetail/>,
             },
             {
-                path: '/edit/:id',
+                path: 'books/:id/edit/:id',
                 element: <BookEdit/>,
             },
         ]

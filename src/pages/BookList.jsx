@@ -29,7 +29,7 @@ function BookList() {
 
     return (
         <>
-            <div className="grid grid-cols-2 gap-4 mb-20">
+            <div className="grid grid-cols-3 gap-4 mb-20">
                 {books.map((book) => (
                     <BookShow key={book.id} book={book}/>
 

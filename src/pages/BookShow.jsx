@@ -3,10 +3,9 @@ import {Link} from "react-router";
 
 function BookShow({book}) {
     return (
-      <div>
+      <div className="border-white rounded-xl">
           <h2>{book.title}</h2>
           <Link to={`books/${book.id}`}>Details</Link>
-          <Link to={`edit/${book.id}`}>Edit</Link>
       </div>
     )
 }
