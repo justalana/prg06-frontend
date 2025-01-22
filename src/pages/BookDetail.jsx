@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
-import {Link, useNavigate, useParams} from "react-router";
+import {useNavigate, useParams} from "react-router";
+import {Link} from "react-router";
 
 function BookDetail() {
 
@@ -8,12 +9,11 @@ function BookDetail() {
     const navigate = useNavigate();
 
     const {id} = useParams()
-    console.log(id)
 
     useEffect(() => {
         async function fetchBook() {
             try {
-                const response = await fetch(`http://145.24.223.206:8000/books/` + id , {
+                const response = await fetch(`http://145.24.223.206:8000/books/${id}` , {
                     method: 'GET',
                     headers: {
                         'Accept': 'application/json'
@@ -21,7 +21,6 @@ function BookDetail() {
                 });
 
                 const data = await response.json();
-
                 setBook(data);
 
             } catch (error) {
@@ -34,7 +33,7 @@ function BookDetail() {
 
     const deleteClickHandler = async () => {
         try {
-            const response = await fetch(`http://145.24.223.206:8000/books/` + id , {
+            const response = await fetch(`http://145.24.223.206:8000/books/${id}` , {
                 method: 'DELETE',
                 headers: {
                     'Accept': 'application/json'
@@ -51,14 +50,14 @@ function BookDetail() {
     return (
         <>
             <div>
-                <h1>{book.title}</h1>
-                <p>{book.description}</p>
-                <p>{book.author}</p>
+                <h1>Title: {book.title}</h1>
+                <p>Description: {book.description}</p>
+                <p>Author: {book.author}</p>
+                <p>Pages: {book.pages}</p>
+                <p>Genre: {book.genre}</p>
 
                 <button onClick={deleteClickHandler}>Delete</button>
-
-                {/*De knop werkt niet op de detail pagina maar wel op de overzicht pagina?*/}
-                {/*<Link to={`edit/${note.id}`}>Edit</Link>*/}
+                <Link to={`edit/${book.id}`}>Edit</Link>
             </div>
         </>
     )

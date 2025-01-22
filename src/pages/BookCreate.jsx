@@ -7,6 +7,8 @@ function BookCreate() {
         title: '',
         description: '',
         author: '',
+        pages: '',
+        genre: '',
     });
 
     // Generieke handler voor het bijwerken van de state
@@ -58,12 +60,12 @@ function BookCreate() {
                 />
             </div>
             <div>
-                <label htmlFor="body">Content:</label>
+                <label htmlFor="description">Description::</label>
                 <input
                     type="text"
-                    id="body"
-                    name="body"
-                    value={formData.body}
+                    id="description"
+                    name="description"
+                    value={formData.description}
                     onChange={handleInputChange}
                 />
             </div>
@@ -77,7 +79,27 @@ function BookCreate() {
                     onChange={handleInputChange}
                 />
             </div>
-            <button type="submit">Verzenden</button>
+            <div>
+                <label htmlFor="pages">Pages:</label>
+                <input
+                    type="text"
+                    id="pages"
+                    name="pages"
+                    value={formData.pages}
+                    onChange={handleInputChange}
+                />
+            </div>
+            <div>
+                <label htmlFor="genre">Genre:</label>
+                <input
+                    type="text"
+                    id="genre"
+                    name="genre"
+                    value={formData.genre}
+                    onChange={handleInputChange}
+                />
+            </div>
+            <button type="submit">Add Book</button>
         </form>
     );
 }

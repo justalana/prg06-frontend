@@ -6,7 +6,7 @@ function Layout() {
             <header>
                 <nav>
                     <Link to={`/`}>Home</Link>
-                    <Link to={`/form`}>Create New Note</Link>
+                    <Link to={`/create`}>Add New Book</Link>
                 </nav>
             </header>
             <main>

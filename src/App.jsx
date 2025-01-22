@@ -17,7 +17,7 @@ const router = createBrowserRouter([
                 element: <BookList/>,
             },
             {
-                path: '/form',
+                path: '/create',
                 element: <BookCreate/>,
             },
             {

@@ -17,8 +17,6 @@ function BookList() {
                 });
 
                 const data = await response.json();
-                console.log(data);
-
                 setBooks(data.items);
 
             } catch (error) {

@@ -6,14 +6,16 @@ function EditBook() {
     const { id } = useParams();
     const [book, setBook] = useState({
         title: '',
-        body: '',
-        author: ''
+        description: '',
+        author: '',
+        pages: '',
+        genre: ''
     });
 
     useEffect(() => {
         async function fetchBook() {
             try {
-                const response = await fetch(`http://145.24.223.206:8000/books/` + id, {
+                const response = await fetch(`http://145.24.223.206:8000/books/${id}`, {
                     method: 'GET',
                     headers: {
                         'Accept': 'application/json'
@@ -25,6 +27,8 @@ function EditBook() {
                     title: data.title || '',
                     description: data.description || '',
                     author: data.author || '',
+                    pages: data.pages || '',
+                    genre: data.genre || '',
                 });
             } catch (error) {
                 console.error('Error fetching book:', error);
@@ -66,7 +70,7 @@ const handleSubmit = async (event) => {
     }
 };
 
-if (!book.title && !book.description && !book.author) {
+if (!book.title && !book.description && !book.author && !book.pages && !book.genre) {
     return <div>Loading...</div>;
 }
 
@@ -99,6 +103,26 @@ return (
                 id="author"
                 name="author"
                 value={book.author}
+                onChange={handleInputChange}
+            />
+        </div>
+        <div>
+            <label htmlFor="pages">Pages:</label>
+            <input
+                type="number"
+                id="pages"
+                name="pages"
+                value={book.pages}
+                onChange={handleInputChange}
+            />
+        </div>
+        <div>
+            <label htmlFor="genre">Genre:</label>
+            <input
+                type="text"
+                id="genre"
+                name="genre"
+                value={book.genre}
                 onChange={handleInputChange}
             />
         </div>
